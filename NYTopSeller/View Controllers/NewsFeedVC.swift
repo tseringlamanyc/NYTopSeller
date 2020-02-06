@@ -22,6 +22,18 @@ class NewsFeedVC: UIViewController {
         feedView.feedCV.dataSource = self
         feedView.feedCV.delegate = self
         feedView.feedCV.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "feedCell")
+        fetchStories()
+    }
+    
+    private func fetchStories(string: String = "Technology") {
+        NYTimesAPI.getTopStories(section: string) { (result) in
+            switch result {
+            case .failure(let appError):
+                print("\(appError)")
+            case .success(let articles):
+                print("\(articles)")
+            }
+        }
     }
 }
 
