@@ -104,30 +104,6 @@ class NYTopSellerTests: XCTestCase {
         }
         """.data(using: .utf8)!
         
-        struct TopStories: Codable {
-            let section: String
-            let lastUpdated: String
-            let results: [Article]
-            private enum CodingKeys: String, CodingKey {
-                case lastUpdated = "last_updated"
-                case results
-                case section
-            }
-        }
-        
-        struct Article: Codable {
-            let section: String
-            let abstract: String
-            let title: String
-            let publishedDate: String
-            private enum CodingKeys: String, CodingKey {
-                case publishedDate = "published_date"
-                case section
-                case abstract
-                case title
-            }
-        }
-        
         let expectedTitle = "Trump Administration Freezes Global Entry Enrollment in New York Over Immigration Law"
         
         // act
