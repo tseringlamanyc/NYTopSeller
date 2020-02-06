@@ -17,6 +17,14 @@ class NewsFeedView: UIView {
         return searchBar
     }()
     
+    public lazy var feedCV: UICollectionView = {
+       let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        cv.backgroundColor = .systemBackground
+        return cv
+    }()
+    
     override init(frame: CGRect) {
     super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -29,6 +37,7 @@ class NewsFeedView: UIView {
     
     private func commonInit() {
         setupSearchBar()
+        setupCV()
     }
     
     private func setupSearchBar() {
@@ -38,6 +47,17 @@ class NewsFeedView: UIView {
             searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
             searchBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0),
             searchBar.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0)
+        ])
+    }
+    
+    private func setupCV() {
+        addSubview(feedCV)
+        feedCV.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            feedCV.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 0),
+            feedCV.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            feedCV.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            feedCV.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
