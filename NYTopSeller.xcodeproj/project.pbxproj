@@ -74,13 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				521FC22D23EC6B6600446D56 /* NYTopSeller */,
-				521FC25E23EC6E4800446D56 /* APIClient */,
-				521FC25B23EC6E3100446D56 /* Model */,
-				521FC26123EC711600446D56 /* Views */,
-				521FC25423EC6C2400446D56 /* View Controllers */,
-				521FC25123EC6C0700446D56 /* TabBar */,
-				521FC24423EC6B6900446D56 /* NYTopSellerTests */,
 				521FC22C23EC6B6600446D56 /* Products */,
+				521FC24423EC6B6900446D56 /* NYTopSellerTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +91,11 @@
 		521FC22D23EC6B6600446D56 /* NYTopSeller */ = {
 			isa = PBXGroup;
 			children = (
+				521FC25E23EC6E4800446D56 /* APIClient */,
+				521FC25B23EC6E3100446D56 /* Model */,
+				521FC25123EC6C0700446D56 /* TabBar */,
+				521FC26123EC711600446D56 /* Views */,
+				521FC25423EC6C2400446D56 /* View Controllers */,
 				521FC22E23EC6B6600446D56 /* AppDelegate.swift */,
 				521FC23023EC6B6600446D56 /* SceneDelegate.swift */,
 				521FC23723EC6B6900446D56 /* Assets.xcassets */,
