@@ -1,5 +1,5 @@
 //
-//  TabBar.swift
+//  NewsFeedVC.swift
 //  NYTopSeller
 //
 //  Created by Tsering Lama on 2/6/20.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TabBar: UITabBarController {
+class NewsFeedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
+        view.backgroundColor = .systemBackground
     }
 }
