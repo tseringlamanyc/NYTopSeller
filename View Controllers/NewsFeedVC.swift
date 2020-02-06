@@ -9,6 +9,12 @@
 import UIKit
 
 class NewsFeedVC: UIViewController {
+    
+    private var feedView = NewsFeedView()
+    
+    override func loadView() {
+        view = feedView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
