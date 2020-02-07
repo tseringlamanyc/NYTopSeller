@@ -7,13 +7,22 @@
 //
 
 import UIKit
+import ImageKit
 
 class DetailVC: UIViewController {
     
     public var article: Article?
+    
+    private var detailView = DetailView()
+    
+    override func loadView() {
+        view = detailView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "paperplane.fill"), style: .plain, target: self, action: #selector(saveArticle(sender:)))
         updateUI()
     }
     
@@ -22,5 +31,21 @@ class DetailVC: UIViewController {
             fatalError()
         }
         navigationItem.title = article.title
+        detailView.newsImage.getImage(with: article.getImageURL(imageFormat: .superJumbo)) { [weak self] (result) in
+            switch result {
+            case .failure(_):
+                print("no picture")
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.detailView.newsImage.image = image
+                }
+            }
+        }
+        detailView.abstractLabel.text = article.abstract
+    }
+    
+    @objc
+    private func saveArticle(sender: UIBarButtonItem) {
+        
     }
 }
