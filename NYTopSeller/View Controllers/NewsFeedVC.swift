@@ -70,4 +70,11 @@ extension NewsFeedVC: UICollectionViewDelegateFlowLayout {
            let itemWidth: CGFloat = maxSize.width
            return CGSize(width: itemWidth, height: itemHeight)
        }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let article = newsArticles[indexPath.row]
+        let detailVC = DetailVC()
+        detailVC.article = article
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		520D4C5423EDB6C50028721C /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D4C5323EDB6C50028721C /* FeedCell.swift */; };
+		520D4C5623EDCB610028721C /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D4C5523EDCB610028721C /* DetailVC.swift */; };
 		521FC22F23EC6B6600446D56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521FC22E23EC6B6600446D56 /* AppDelegate.swift */; };
 		521FC23123EC6B6600446D56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521FC23023EC6B6600446D56 /* SceneDelegate.swift */; };
 		521FC23823EC6B6900446D56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521FC23723EC6B6900446D56 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		520D4C5323EDB6C50028721C /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		520D4C5523EDCB610028721C /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		521FC22B23EC6B6600446D56 /* NYTopSeller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTopSeller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		521FC22E23EC6B6600446D56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		521FC23023EC6B6600446D56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				521FC25523EC6DE300446D56 /* NewsFeedVC.swift */,
+				520D4C5523EDCB610028721C /* DetailVC.swift */,
 				521FC25723EC6DEF00446D56 /* ReadLaterVC.swift */,
 				521FC25923EC6E0900446D56 /* SettingsVC.swift */,
 			);
@@ -289,6 +292,7 @@
 				521FC25623EC6DE300446D56 /* NewsFeedVC.swift in Sources */,
 				521FC25823EC6DEF00446D56 /* ReadLaterVC.swift in Sources */,
 				520D4C5423EDB6C50028721C /* FeedCell.swift in Sources */,
+				520D4C5623EDCB610028721C /* DetailVC.swift in Sources */,
 				521FC22F23EC6B6600446D56 /* AppDelegate.swift in Sources */,
 				521FC23123EC6B6600446D56 /* SceneDelegate.swift in Sources */,
 				521FC26323EC714000446D56 /* NewsFeedView.swift in Sources */,
