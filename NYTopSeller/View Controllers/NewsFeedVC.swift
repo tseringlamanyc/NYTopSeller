@@ -15,6 +15,14 @@ class NewsFeedVC: UIViewController {
     override func loadView() {
         view = feedView
     }
+    
+    private var newsArticles = [Article]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.feedView.feedCV.reloadData()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +34,12 @@ class NewsFeedVC: UIViewController {
     }
     
     private func fetchStories(string: String = "Technology") {
-        NYTimesAPI.getTopStories(section: string) { (result) in
+        NYTimesAPI.getTopStories(section: string) { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 print("\(appError)")
             case .success(let articles):
-                print("\(articles)")
+                self?.newsArticles = articles
             }
         }
     }
@@ -40,14 +48,16 @@ class NewsFeedVC: UIViewController {
 extension NewsFeedVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return newsArticles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "feedCell", for: indexPath) as? FeedCell else {
             fatalError()
         }
-        cell.backgroundColor = .systemGray
+        let aNews = newsArticles[indexPath.row]
+        cell.backgroundColor = .systemBackground
+        cell.updateUI(article: aNews)
         return cell
     }
 }
