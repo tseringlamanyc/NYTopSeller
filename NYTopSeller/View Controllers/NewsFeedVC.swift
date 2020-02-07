@@ -21,7 +21,7 @@ class NewsFeedVC: UIViewController {
         view.backgroundColor = .systemBackground
         feedView.feedCV.dataSource = self
         feedView.feedCV.delegate = self
-        feedView.feedCV.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "feedCell")
+        feedView.feedCV.register(FeedCell.self, forCellWithReuseIdentifier: "feedCell")
         fetchStories()
     }
     
@@ -38,12 +38,13 @@ class NewsFeedVC: UIViewController {
 }
 
 extension NewsFeedVC: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 50
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "feedCell", for: indexPath) as? UICollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "feedCell", for: indexPath) as? FeedCell else {
             fatalError()
         }
         cell.backgroundColor = .systemGray
@@ -54,7 +55,7 @@ extension NewsFeedVC: UICollectionViewDataSource {
 extension NewsFeedVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
            let maxSize = UIScreen.main.bounds.size
-           let itemHeight: CGFloat = maxSize.height * 0.30
+           let itemHeight: CGFloat = maxSize.height * 0.20
            let itemWidth: CGFloat = maxSize.width
            return CGSize(width: itemWidth, height: itemHeight)
        }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520D4C5423EDB6C50028721C /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D4C5323EDB6C50028721C /* FeedCell.swift */; };
 		521FC22F23EC6B6600446D56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521FC22E23EC6B6600446D56 /* AppDelegate.swift */; };
 		521FC23123EC6B6600446D56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521FC23023EC6B6600446D56 /* SceneDelegate.swift */; };
 		521FC23823EC6B6900446D56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521FC23723EC6B6900446D56 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		520D4C5323EDB6C50028721C /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		521FC22B23EC6B6600446D56 /* NYTopSeller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTopSeller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		521FC22E23EC6B6600446D56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		521FC23023EC6B6600446D56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		520D4C5223EDB6300028721C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				520D4C5323EDB6C50028721C /* FeedCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		521FC22223EC6B6600446D56 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +108,7 @@
 				521FC25B23EC6E3100446D56 /* Model */,
 				521FC25123EC6C0700446D56 /* TabBar */,
 				521FC26123EC711600446D56 /* Views */,
+				520D4C5223EDB6300028721C /* Cells */,
 				521FC25423EC6C2400446D56 /* View Controllers */,
 				521FC23723EC6B6900446D56 /* Assets.xcassets */,
 				521FC23923EC6B6900446D56 /* LaunchScreen.storyboard */,
@@ -277,6 +288,7 @@
 				521FC25323EC6C1D00446D56 /* TabBarVC.swift in Sources */,
 				521FC25623EC6DE300446D56 /* NewsFeedVC.swift in Sources */,
 				521FC25823EC6DEF00446D56 /* ReadLaterVC.swift in Sources */,
+				520D4C5423EDB6C50028721C /* FeedCell.swift in Sources */,
 				521FC22F23EC6B6600446D56 /* AppDelegate.swift in Sources */,
 				521FC23123EC6B6600446D56 /* SceneDelegate.swift in Sources */,
 				521FC26323EC714000446D56 /* NewsFeedView.swift in Sources */,
