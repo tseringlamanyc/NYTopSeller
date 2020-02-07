@@ -13,11 +13,27 @@ class FeedCell: UICollectionViewCell {
     // image, title, abstract
     
     public lazy var newsImage: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.image = UIImage(systemName: "gear")
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .systemYellow
         return imageView
+    }()
+    
+    public lazy var articleTitle: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 2
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.text = "Article"
+        return label
+    }()
+    
+    public lazy var abstractLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 3
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.text = "Abstract"
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -32,6 +48,8 @@ class FeedCell: UICollectionViewCell {
     
     private func commonInit() {
         setupImage()
+        setupArticleTitle()
+        setupAbstract()
     }
     
     private func setupImage() {
@@ -40,8 +58,28 @@ class FeedCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             newsImage.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             newsImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            newsImage.heightAnchor.constraint(equalTo: heightAnchor, constant: 0.20),
+            newsImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.80),
             newsImage.widthAnchor.constraint(equalTo: newsImage.heightAnchor)
+        ])
+    }
+    
+    private func setupArticleTitle() {
+        addSubview(articleTitle)
+        articleTitle.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            articleTitle.topAnchor.constraint(equalTo: newsImage.topAnchor),
+            articleTitle.leadingAnchor.constraint(equalTo: newsImage.trailingAnchor, constant: 8),
+            articleTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+        ])
+    }
+    
+    private func setupAbstract() {
+        addSubview(abstractLabel)
+        abstractLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            abstractLabel.topAnchor.constraint(equalTo: articleTitle.bottomAnchor, constant: 8),
+            abstractLabel.leadingAnchor.constraint(equalTo: articleTitle.leadingAnchor),
+            abstractLabel.trailingAnchor.constraint(equalTo: articleTitle.trailingAnchor)
         ])
     }
     

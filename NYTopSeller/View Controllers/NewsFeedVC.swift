@@ -53,6 +53,7 @@ extension NewsFeedVC: UICollectionViewDataSource {
 }
 
 extension NewsFeedVC: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
            let maxSize = UIScreen.main.bounds.size
            let itemHeight: CGFloat = maxSize.height * 0.20
