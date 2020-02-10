@@ -8,12 +8,15 @@
 
 import UIKit
 import ImageKit
+import DataPersistence
 
 class DetailVC: UIViewController {
     
     public var article: Article?
     
     private var detailView = DetailView()
+    
+    public var dataPersistence: DataPersistence<Article>!
     
     override func loadView() {
         view = detailView
@@ -46,6 +49,14 @@ class DetailVC: UIViewController {
     
     @objc
     private func saveArticle(sender: UIBarButtonItem) {
-        
+        guard let article = article else {
+            fatalError()
+        }
+        do {
+            try dataPersistence.createItem(article) 
+        } catch {
+            print("couldnt save")
+        }
     }
 }
+

@@ -24,6 +24,7 @@
 		521FC26323EC714000446D56 /* NewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521FC26223EC714000446D56 /* NewsFeedView.swift */; };
 		521FC26623EC865000446D56 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 521FC26523EC865000446D56 /* ImageKit */; };
 		521FC26923EC8BFF00446D56 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521FC26823EC8BFF00446D56 /* Config.swift */; };
+		522AB4BF23F1AC3D003B5E4F /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB4BE23F1AC3D003B5E4F /* SavedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		521FC25F23EC6E5C00446D56 /* NYTimesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTimesAPI.swift; sourceTree = "<group>"; };
 		521FC26223EC714000446D56 /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
 		521FC26823EC8BFF00446D56 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		522AB4BE23F1AC3D003B5E4F /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				521FC26223EC714000446D56 /* NewsFeedView.swift */,
 				520D4C5723EDD1140028721C /* DetailView.swift */,
+				522AB4BE23F1AC3D003B5E4F /* SavedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				520D4C5823EDD1140028721C /* DetailView.swift in Sources */,
 				521FC23123EC6B6600446D56 /* SceneDelegate.swift in Sources */,
 				521FC26323EC714000446D56 /* NewsFeedView.swift in Sources */,
+				522AB4BF23F1AC3D003B5E4F /* SavedView.swift in Sources */,
 				521FC26923EC8BFF00446D56 /* Config.swift in Sources */,
 				521FC26023EC6E5C00446D56 /* NYTimesAPI.swift in Sources */,
 				521FC25A23EC6E0900446D56 /* SettingsVC.swift in Sources */,

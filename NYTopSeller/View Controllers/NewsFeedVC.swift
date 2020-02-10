@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import DataPersistence
 
 class NewsFeedVC: UIViewController {
     
     private var feedView = NewsFeedView()
+    
+    public var dataPersistence: DataPersistence<Article>!
     
     override func loadView() {
         view = feedView
@@ -75,6 +78,7 @@ extension NewsFeedVC: UICollectionViewDelegateFlowLayout {
         let article = newsArticles[indexPath.row]
         let detailVC = DetailVC()
         detailVC.article = article
+        detailVC.dataPersistence = dataPersistence
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
