@@ -39,6 +39,7 @@ class NewsFeedVC: UIViewController {
         feedView.feedCV.dataSource = self
         feedView.feedCV.delegate = self
         feedView.feedCV.register(FeedCell.self, forCellWithReuseIdentifier: "feedCell")
+        feedView.searchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +54,8 @@ class NewsFeedVC: UIViewController {
                 // new search
                 hitAPI(section: sectionName)
                 self.sectionName = sectionName
+            } else {
+               hitAPI(section: sectionName)
             }
         } else {
             // use the default name
@@ -104,5 +107,21 @@ extension NewsFeedVC: UICollectionViewDelegateFlowLayout {
         detailVC.article = article
         detailVC.dataPersistence = dataPersistence
         navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if feedView.searchBar.isFirstResponder {
+            feedView.searchBar.resignFirstResponder()
+        }
+    }
+}
+
+extension NewsFeedVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            fetchStories()
+            return
+        }
+        newsArticles = newsArticles.filter {$0.title.lowercased().contains(searchText.lowercased())}
     }
 }
