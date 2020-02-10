@@ -104,6 +104,15 @@ extension ReadLaterVC: UICollectionViewDataSource {
         cell.backgroundColor = .systemBackground
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // setup segue
+        let detailVC = DetailVC()
+        let aArticle = savedArticles[indexPath.row]
+        detailVC.article = aArticle
+        detailVC.dataPersistence = dataPersistence
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension ReadLaterVC: SavedCellDelegate {

@@ -9,11 +9,15 @@
 import UIKit
 import DataPersistence
 
+struct Userkey {
+    static let sectionName = "sections"
+}
+
 class SettingsVC: UIViewController {
     
     private var settingsView = SettingsView()
     
-    private let sections = ["Arts", "Automobiles", "Books", "Business", "Fashion", "Food", "Health", "Home", "Insider", "Magazine", "Movies", "NYRegion", "Obituaries", "Opinion", "Politics", "RealeEstate", "Science", "Sports", "SundayReview", "Technology", "Theater", "T-Magazine", "Travel", "Upshot", "US", "World"]
+    private let sections = ["Arts", "Automobiles", "Books", "Business", "Fashion", "Food", "Health", "Insider", "Magazine", "Movies", "NYRegion", "Obituaries", "Opinion", "Politics", "RealEstate", "Science", "Sports", "SundayReview", "Technology", "Theater", "T-Magazine", "Travel", "Upshot", "US", "World"]
     
     override func loadView() {
         view = settingsView
@@ -35,6 +39,12 @@ extension SettingsVC: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return sections.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // user defaults here
+        let sectionName = (sections[row])
+        UserDefaults.standard.set(sectionName, forKey: Userkey.sectionName)
     }
 }
 

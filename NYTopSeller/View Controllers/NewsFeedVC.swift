@@ -26,6 +26,12 @@ class NewsFeedVC: UIViewController {
             }
         }
     }
+    
+    private var sectionName = "Technology" {
+        didSet {
+            hitAPI(section: sectionName)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +39,29 @@ class NewsFeedVC: UIViewController {
         feedView.feedCV.dataSource = self
         feedView.feedCV.delegate = self
         feedView.feedCV.register(FeedCell.self, forCellWithReuseIdentifier: "feedCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         fetchStories()
     }
     
     private func fetchStories(string: String = "Technology") {
-        NYTimesAPI.getTopStories(section: string) { [weak self] (result) in
+        if let sectionName = UserDefaults.standard.object(forKey: Userkey.sectionName) as? String {
+            if sectionName != self.sectionName {
+                // if technology != technology
+                // new search
+                hitAPI(section: sectionName)
+                self.sectionName = sectionName
+            }
+        } else {
+            // use the default name
+            hitAPI(section: sectionName)
+        }
+    }
+    
+    private func hitAPI(section: String) {
+        NYTimesAPI.getTopStories(section: section) { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 print("\(appError)")
