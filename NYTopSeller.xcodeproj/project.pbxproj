@@ -25,6 +25,8 @@
 		521FC26623EC865000446D56 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 521FC26523EC865000446D56 /* ImageKit */; };
 		521FC26923EC8BFF00446D56 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521FC26823EC8BFF00446D56 /* Config.swift */; };
 		522AB4BF23F1AC3D003B5E4F /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB4BE23F1AC3D003B5E4F /* SavedView.swift */; };
+		522AB4C123F1AF64003B5E4F /* SavedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB4C023F1AF64003B5E4F /* SavedCell.swift */; };
+		522AB4C523F1B332003B5E4F /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB4C423F1B332003B5E4F /* EmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		521FC26223EC714000446D56 /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
 		521FC26823EC8BFF00446D56 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		522AB4BE23F1AC3D003B5E4F /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
+		522AB4C023F1AF64003B5E4F /* SavedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCell.swift; sourceTree = "<group>"; };
+		522AB4C423F1B332003B5E4F /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				520D4C5323EDB6C50028721C /* FeedCell.swift */,
+				522AB4C023F1AF64003B5E4F /* SavedCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				521FC26223EC714000446D56 /* NewsFeedView.swift */,
 				520D4C5723EDD1140028721C /* DetailView.swift */,
 				522AB4BE23F1AC3D003B5E4F /* SavedView.swift */,
+				522AB4C423F1B332003B5E4F /* EmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,12 +303,14 @@
 				521FC25323EC6C1D00446D56 /* TabBarVC.swift in Sources */,
 				521FC25623EC6DE300446D56 /* NewsFeedVC.swift in Sources */,
 				521FC25823EC6DEF00446D56 /* ReadLaterVC.swift in Sources */,
+				522AB4C523F1B332003B5E4F /* EmptyView.swift in Sources */,
 				520D4C5423EDB6C50028721C /* FeedCell.swift in Sources */,
 				520D4C5623EDCB610028721C /* DetailVC.swift in Sources */,
 				521FC22F23EC6B6600446D56 /* AppDelegate.swift in Sources */,
 				520D4C5823EDD1140028721C /* DetailView.swift in Sources */,
 				521FC23123EC6B6600446D56 /* SceneDelegate.swift in Sources */,
 				521FC26323EC714000446D56 /* NewsFeedView.swift in Sources */,
+				522AB4C123F1AF64003B5E4F /* SavedCell.swift in Sources */,
 				522AB4BF23F1AC3D003B5E4F /* SavedView.swift in Sources */,
 				521FC26923EC8BFF00446D56 /* Config.swift in Sources */,
 				521FC26023EC6E5C00446D56 /* NYTimesAPI.swift in Sources */,
