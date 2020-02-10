@@ -27,6 +27,7 @@
 		522AB4BF23F1AC3D003B5E4F /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB4BE23F1AC3D003B5E4F /* SavedView.swift */; };
 		522AB4C123F1AF64003B5E4F /* SavedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB4C023F1AF64003B5E4F /* SavedCell.swift */; };
 		522AB4C523F1B332003B5E4F /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB4C423F1B332003B5E4F /* EmptyView.swift */; };
+		522AB4C723F1CDCA003B5E4F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB4C623F1CDCA003B5E4F /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		522AB4BE23F1AC3D003B5E4F /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 		522AB4C023F1AF64003B5E4F /* SavedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCell.swift; sourceTree = "<group>"; };
 		522AB4C423F1B332003B5E4F /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		522AB4C623F1CDCA003B5E4F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				520D4C5723EDD1140028721C /* DetailView.swift */,
 				522AB4BE23F1AC3D003B5E4F /* SavedView.swift */,
 				522AB4C423F1B332003B5E4F /* EmptyView.swift */,
+				522AB4C623F1CDCA003B5E4F /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				521FC25623EC6DE300446D56 /* NewsFeedVC.swift in Sources */,
 				521FC25823EC6DEF00446D56 /* ReadLaterVC.swift in Sources */,
 				522AB4C523F1B332003B5E4F /* EmptyView.swift in Sources */,
+				522AB4C723F1CDCA003B5E4F /* SettingsView.swift in Sources */,
 				520D4C5423EDB6C50028721C /* FeedCell.swift in Sources */,
 				520D4C5623EDCB610028721C /* DetailVC.swift in Sources */,
 				521FC22F23EC6B6600446D56 /* AppDelegate.swift in Sources */,
