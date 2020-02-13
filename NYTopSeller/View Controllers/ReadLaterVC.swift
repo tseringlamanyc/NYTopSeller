@@ -10,66 +10,76 @@ import UIKit
 import DataPersistence
 
 class ReadLaterVC: UIViewController {
-  
-  // step 4: setting up data persistence and its delegate
-  public var dataPersistence: DataPersistence<Article>!
     
-  private let savedView = SavedView()
+    // step 4: setting up data persistence and its delegate
+    private var dataPersistence: DataPersistence<Article>
+    
+    init(dataPersistence: DataPersistence<Article>) {
+        self.dataPersistence = dataPersistence
+        super.init(nibName: nil, bundle: nil)
+        self.dataPersistence.delegate = self 
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init couldnt be implemented")
+    }
+    
+    private let savedView = SavedView()
     
     override func loadView() {
         view = savedView
     }
-  
-  // TODO: create a SavedArticleView
-  // TODO: add a collection view to the SavedArticleView
-  // TODO: collection view is vertical with 2 cells per row
-  // TODO: add SavedArticleView to SavedArticleViewController
-  // TODO: create an array of savedArticle = [Article]
-  // TODO: reload collection view in didSet of savedArticle array
-  
-  private var savedArticles = [Article]() {
-    didSet {
-      print("there are \(savedArticles.count) articles")
-        savedView.collectionView.reloadData()
-        if savedArticles.isEmpty {
-            savedView.collectionView.backgroundView = EmptyView(title: "Saved Articles", message: "No saved articles")
-        } else {
-            savedView.collectionView.backgroundView = nil
+    
+    // TODO: create a SavedArticleView
+    // TODO: add a collection view to the SavedArticleView
+    // TODO: collection view is vertical with 2 cells per row
+    // TODO: add SavedArticleView to SavedArticleViewController
+    // TODO: create an array of savedArticle = [Article]
+    // TODO: reload collection view in didSet of savedArticle array
+    
+    private var savedArticles = [Article]() {
+        didSet {
+            print("there are \(savedArticles.count) articles")
+            savedView.collectionView.reloadData()
+            if savedArticles.isEmpty {
+                savedView.collectionView.backgroundView = EmptyView(title: "Saved Articles", message: "No saved articles")
+            } else {
+                savedView.collectionView.backgroundView = nil
+            }
         }
     }
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    view.backgroundColor = .systemBackground
-    savedView.collectionView.register(SavedCell.self, forCellWithReuseIdentifier: "savedCell")
-    dataPersistence.delegate = self
-    savedView.collectionView.dataSource = self
-    savedView.collectionView.delegate = self
-    fetchSavedArticles()
-  }
-  
-  private func fetchSavedArticles() {
-    do {
-      savedArticles = try dataPersistence.loadItems()
-    } catch {
-      print("error fetching articles: \(error)")
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        savedView.collectionView.register(SavedCell.self, forCellWithReuseIdentifier: "savedCell")
+        dataPersistence.delegate = self
+        savedView.collectionView.dataSource = self
+        savedView.collectionView.delegate = self
+        fetchSavedArticles()
     }
-  }
+    
+    private func fetchSavedArticles() {
+        do {
+            savedArticles = try dataPersistence.loadItems()
+        } catch {
+            print("error fetching articles: \(error)")
+        }
+    }
 }
 
 // step 5: setting up data persistence and its delegate
 // conforming to the DataPersistenceDelegate
 extension ReadLaterVC: DataPersistenceDelegate {
-  func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-    print("items was saved")
-    fetchSavedArticles()
-  }
-  
-  func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-    print("items was deleted")
-    fetchSavedArticles()
-  }
+    func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        print("items was saved")
+        fetchSavedArticles()
+    }
+    
+    func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        print("items was deleted")
+        fetchSavedArticles()
+    }
 }
 
 extension ReadLaterVC: UICollectionViewDelegateFlowLayout {
@@ -84,12 +94,10 @@ extension ReadLaterVC: UICollectionViewDelegateFlowLayout {
         return CGSize(width: itemWidth, height: itemHeight)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    }
 }
 
 extension ReadLaterVC: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return savedArticles.count
     }
@@ -107,10 +115,8 @@ extension ReadLaterVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // setup segue
-        let detailVC = DetailVC()
         let aArticle = savedArticles[indexPath.row]
-        detailVC.article = aArticle
-        detailVC.dataPersistence = dataPersistence
+        let detailVC = DetailVC(dataPersistence: dataPersistence, article: aArticle)
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

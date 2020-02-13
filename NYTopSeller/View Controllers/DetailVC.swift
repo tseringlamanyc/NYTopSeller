@@ -12,16 +12,26 @@ import DataPersistence
 
 class DetailVC: UIViewController {
     
-    public var article: Article?
+    private var article: Article
     
     private var detailView = DetailView()
     
-    public var dataPersistence: DataPersistence<Article>!
+    private var dataPersistence: DataPersistence<Article>
+    
+    init(dataPersistence: DataPersistence<Article>, article: Article) {
+        self.dataPersistence = dataPersistence
+        self.article = article
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init couldnt be implemented")
+    }
     
     override func loadView() {
         view = detailView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -30,9 +40,6 @@ class DetailVC: UIViewController {
     }
     
     private func updateUI() {
-        guard let article = article else {
-            fatalError()
-        }
         navigationItem.title = article.title
         detailView.newsImage.getImage(with: article.getImageURL(imageFormat: .superJumbo)) { [weak self] (result) in
             switch result {
@@ -49,9 +56,6 @@ class DetailVC: UIViewController {
     
     @objc
     private func saveArticle(sender: UIBarButtonItem) {
-        guard let article = article else {
-            fatalError()
-        }
         do {
             try dataPersistence.createItem(article) 
         } catch {
@@ -59,4 +63,3 @@ class DetailVC: UIViewController {
         }
     }
 }
-

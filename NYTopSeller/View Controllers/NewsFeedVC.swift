@@ -11,9 +11,21 @@ import DataPersistence
 
 class NewsFeedVC: UIViewController {
     
-    private var feedView = NewsFeedView()
+    private let feedView = NewsFeedView()
     
-    public var dataPersistence: DataPersistence<Article>!
+    private var dataPersistence: DataPersistence<Article>
+    
+    // class needs a default value ,, use initializer ,,, remove (!)
+    
+    // initializers
+    init(dataPersistence: DataPersistence<Article>) {
+        self.dataPersistence = dataPersistence
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init couldnt be implemented")
+    }
     
     override func loadView() {
         view = feedView
@@ -103,9 +115,8 @@ extension NewsFeedVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let article = newsArticles[indexPath.row]
-        let detailVC = DetailVC()
-        detailVC.article = article
-        detailVC.dataPersistence = dataPersistence
+        let detailVC = DetailVC(dataPersistence: dataPersistence, article: article)
+
         navigationController?.pushViewController(detailVC, animated: true)
     }
     

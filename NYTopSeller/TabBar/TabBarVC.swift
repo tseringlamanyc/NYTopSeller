@@ -14,17 +14,14 @@ class TabBarVC: UITabBarController {
     private var dataPersistence = DataPersistence<Article>(filename: "articles.plist")
     
     private lazy var feedVC: NewsFeedVC = {
-        let vc = NewsFeedVC()
-        vc.dataPersistence = dataPersistence
+        let vc = NewsFeedVC(dataPersistence: dataPersistence)
         vc.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "eyeglasses"), tag: 0)
         return vc
     }()
     
     private lazy var readVC: ReadLaterVC = {
-        let vc = ReadLaterVC()
+        let vc = ReadLaterVC(dataPersistence: dataPersistence)
         vc.tabBarItem = UITabBarItem(title: "Read Later", image: UIImage(systemName: "folder"), tag: 1)
-        vc.dataPersistence = dataPersistence
-        vc.dataPersistence.delegate = vc
         return vc
     }()
     
